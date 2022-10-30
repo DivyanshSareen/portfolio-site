@@ -12,8 +12,8 @@ const Contact = () => {
   return (
     <section className="contact">
       {contactIcons.map((icon) => (
-        <div className="contact-icon">
-          <img src={icon} />
+        <div key={icon} className="contact-icon">
+          <object type="image/svg+xml" data={icon}></object>
         </div>
       ))}
     </section>

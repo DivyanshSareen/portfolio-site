@@ -6,4 +6,6 @@ nav {
 
 .nav-option {
     margin: 0 1em 0 1em;
+    width: 7vw;
+    text-align: center;
 }

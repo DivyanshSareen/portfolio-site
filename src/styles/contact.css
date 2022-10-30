@@ -3,7 +3,17 @@
     gap: 1.2em;
     justify-content: center;
     align-items: baseline;
-    margin: 2em 0 0 0;
+    position: fixed;
+    bottom: 0;
+    right: 50%;
+    transform: translate(50%, -50%);
 }
 
-.contact-icon {}
+.contact-icon {
+    filter: invert(0%) sepia(0%) saturate(0%) hue-rotate(103deg) brightness(105%) contrast(105%);
+}
+
+/* https: //codepen.io/sosuke/pen/Pjoqqp */
+.contact-icon:hover {
+    filter: invert(57%) sepia(13%) saturate(8%) hue-rotate(19deg) brightness(85%) contrast(83%);
+}
