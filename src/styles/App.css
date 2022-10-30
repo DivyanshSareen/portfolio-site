@@ -1,0 +1,16 @@
+@import "./reset.css";
+@import "./style-guide.css";
+@import "./nav.css";
+
+.about {
+    background-color: pink;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.about-text {
+    background-color: antiquewhite;
+    margin: 3em;
+    display: flex;
+    flex-direction: column;
+}

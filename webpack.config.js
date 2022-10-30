@@ -36,20 +36,6 @@ const webpackConfig = {
       favicon: "./src/logo.svg",
     })
   ],
-
-  optimization: {
-    splitChunks: {
-      cacheGroups: {
-        node_vendors: {
-          name: "vendor",
-          test: /[\\/]node_modules[\\/]/,
-          chunks: "all",
-          priority: 1,
-        },
-      },
-    },
-  },
-
   devtool: "inline-source-map",
   devServer: {
     static: "./dist",
@@ -57,7 +43,7 @@ const webpackConfig = {
   performance: {
     hints: false,
   },
-  mode: "production",
+  mode: "development",
   resolve: {
     extensions: ['', '.js', '.jsx'],
   }
