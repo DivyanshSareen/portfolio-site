@@ -1,6 +1,6 @@
 import React from "react";
-import AboutImage from "../../assets/about.png";
-import AboutMe from "../../component/AboutMe/AboutMe";
+import AboutImage from "../assets/about.png";
+import AboutMe from "../component/AboutMe/AboutMe";
 
 const HomePage = () => {
   return (
