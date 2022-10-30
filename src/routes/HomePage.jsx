@@ -13,7 +13,9 @@ const HomePage = () => {
           </p>
           <div className="about-text--option btn">read more</div>
         </div>
-        <div className="about-image"><img src={AboutImage} /></div>
+        <div className="about-image">
+          <img src={AboutImage} />
+        </div>
       </div>
     </main>
   );
