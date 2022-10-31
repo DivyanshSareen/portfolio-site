@@ -5,4 +5,15 @@ import Hashnode from "./icons/hashnode.svg";
 import Codewars from "./icons/codewars.svg";
 import Twitter from "./icons/twitter.svg";
 
-export { About, LinkedIn, GitHub, Hashnode, Codewars, Twitter };
+import Css3 from "./technologies/css3.svg";
+import Figma from "./technologies/figma.svg";
+import Git from "./technologies/git.svg";
+import Html from "./technologies/html.svg";
+import Javascript from "./technologies/javascript.svg";
+import Postman from "./technologies/postman.svg";
+import Netlify from "./technologies/netlify.svg";
+import Python from "./technologies/python.svg";
+import React from "./technologies/react.svg";
+import Redux from "./technologies/redux.svg";
+
+export { About, LinkedIn, GitHub, Hashnode, Codewars, Twitter, Css3, Figma, Git, Html, Javascript, Postman, Netlify, Python, React, Redux };

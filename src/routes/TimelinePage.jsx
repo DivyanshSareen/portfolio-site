@@ -1,7 +1,7 @@
 import React from "react";
 
 const TimelinePage = () => {
-  return <div>Timeline</div>;
+  return <div class="timeline"></div>;
 };
 
 export default TimelinePage;
