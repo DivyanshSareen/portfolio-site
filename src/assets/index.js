@@ -13,7 +13,24 @@ import Javascript from "./technologies/javascript.svg";
 import Postman from "./technologies/postman.svg";
 import Netlify from "./technologies/netlify.svg";
 import Python from "./technologies/python.svg";
-import React from "./technologies/react.svg";
+import ReactIcon from "./technologies/react.svg";
 import Redux from "./technologies/redux.svg";
 
-export { About, LinkedIn, GitHub, Hashnode, Codewars, Twitter, Css3, Figma, Git, Html, Javascript, Postman, Netlify, Python, React, Redux };
+export {
+  About,
+  LinkedIn,
+  GitHub,
+  Hashnode,
+  Codewars,
+  Twitter,
+  Css3,
+  Figma,
+  Git,
+  Html,
+  Javascript,
+  Postman,
+  Netlify,
+  Python,
+  ReactIcon,
+  Redux,
+};

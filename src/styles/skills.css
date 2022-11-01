@@ -1,0 +1,26 @@
+.technology-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    row-gap: 2em;
+    margin: 0 15vw 0 15vw;
+    justify-content: center;
+    margin: 5% 0 0 0;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.technology-icon {
+    justify-self: center;
+}
+
+.technology-icon>img {
+    width: 6rem;
+    height: 6rem;
+    aspect-ratio: 1/1;
+}
+
+.technology-title {
+    text-align: center;
+    font-weight: lighter;
+}

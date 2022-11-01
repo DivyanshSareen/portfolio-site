@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 const Nav = () => {
   const navOptions = [
     { id: 0, title: "About Me", path: "/" },
-    { id: 1, title: "Timeline", path: "/timeline" },
     { id: 2, title: "Projects", path: "projects" },
     { id: 3, title: "Blog", path: "/blog" },
+    { id: 1, title: "Skills", path: "/skills" },
   ];
   return (
     <nav>

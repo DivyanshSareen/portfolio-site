@@ -17,3 +17,7 @@
 .contact-icon:hover {
     filter: invert(57%) sepia(13%) saturate(8%) hue-rotate(19deg) brightness(85%) contrast(83%);
 }
+
+.contact-icon>object:hover {
+    width: 2.4rem;
+}
