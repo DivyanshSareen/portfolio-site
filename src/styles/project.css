@@ -10,7 +10,6 @@
     height: 17rem;
     justify-self: center;
     border: 1px solid;
-    text-align: center;
     display: flex;
     flex-direction: column;
     gap: 1em;
@@ -18,14 +17,16 @@
     cursor: pointer;
 }
 
-.project-card:hover {
-    width: 17.5rem;
-}
-
 .project-title {
     font-size: 2.6rem;
 }
 
 .project-desc {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
+}
+
+.project-links {
+    display: flex;
+    margin-top: auto;
+    justify-content: space-around;
 }
