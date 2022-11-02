@@ -24,12 +24,13 @@ const BlogGrid = () => {
   return (
     <>
       {blogs.map((blog) => (
-        <a href={blog.url} target="_blank">
-          <div key={blog.id} className="blog-card">
-            <div className="blog-title">{blog.name}</div>
-            <div className="blog-desc">{blog.desc}</div>
-          </div>
-        </a>
+        <div key={blog.id} className="blog-card">
+          <div className="blog-title">{blog.name}</div>
+          <div className="blog-desc">{blog.desc}</div>
+          <a  className="blog-link" href={blog.url} target="_blank">
+            <div className="btn">Read</div>
+          </a>
+        </div>
       ))}
     </>
   );

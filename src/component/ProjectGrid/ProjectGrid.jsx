@@ -1,7 +1,7 @@
 import React from "react";
 
 const ProjectGrid = () => {
-    const projects = [
+  const projects = [
     {
       id: 5,
       name: "Webpack Starter",
@@ -43,7 +43,9 @@ const ProjectGrid = () => {
       tech: [],
     },
   ];
-    return (<>{projects.map((project) => (
+  return (
+    <>
+      {projects.map((project) => (
         <a href={project.url} target="_blank">
           <div key={project.id} className="project-card">
             <div className="project-title">{project.name}</div>
@@ -58,7 +60,9 @@ const ProjectGrid = () => {
             </div>
           </div>
         </a>
-      ))}</>);
-}
+      ))}
+    </>
+  );
+};
 
 export default ProjectGrid;

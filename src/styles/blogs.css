@@ -24,3 +24,8 @@
 .blog-desc {
     font-size: 1.3rem;
 }
+
+.blog-link {
+    margin-top: auto;
+    padding: 0 1em 0 1em;
+}
