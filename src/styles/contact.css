@@ -1,23 +1,25 @@
 .contact {
     display: flex;
-    gap: 1.2em;
+    flex-direction: column;
+    gap: 0.5em;
     justify-content: center;
     align-items: baseline;
     position: fixed;
-    bottom: 0;
-    right: 50%;
-    transform: translate(50%, -50%);
+    top: 0;
+    right: 0;
+    padding: 1em;
+}
+
+.contact-icon>object {
+    aspect-ratio: 1/1;
 }
 
 .contact-icon {
-    filter: invert(0%) sepia(0%) saturate(0%) hue-rotate(103deg) brightness(105%) contrast(105%);
+    border-radius: 50%;
+    padding: 0.2em;
 }
 
 /* https: //codepen.io/sosuke/pen/Pjoqqp */
 .contact-icon:hover {
-    filter: invert(57%) sepia(13%) saturate(8%) hue-rotate(19deg) brightness(85%) contrast(83%);
-}
-
-.contact-icon>object:hover {
-    width: 2.4rem;
+    background-color: red;
 }

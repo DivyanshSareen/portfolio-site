@@ -1,0 +1,31 @@
+.project-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2em;
+    margin: 5vw;
+}
+
+.project-card {
+    width: 17rem;
+    height: 17rem;
+    justify-self: center;
+    border: 1px solid;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 0.8em;
+    cursor: pointer;
+}
+
+.project-card:hover {
+    width: 17.5rem;
+}
+
+.project-title {
+    font-size: 2.6rem;
+}
+
+.project-desc {
+    font-size: 1.3rem;
+}
