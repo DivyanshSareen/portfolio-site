@@ -5,21 +5,28 @@
     justify-content: center;
     align-items: baseline;
     position: fixed;
-    top: 0;
+    top: 50%;
+    transform: translate(0, -50%);
     right: 0;
     padding: 1em;
+    background-color: var(--card-background);
+    box-shadow:
+        /* offset-x | offset-y | blur-radius | spread-radius | color */
+        0px 8px 10px 1px hsla(0, 0%, 0%, 0.14),
+        0px 3px 14px 2px hsla(0, 0%, 0%, 0.12),
+        0px 5px 5px -3px hsla(0, 0%, 0%, 0.2);
+    border-radius: 4px;
 }
 
 .contact-icon>object {
     aspect-ratio: 1/1;
+
 }
 
 .contact-icon {
+    filter: invert(38%) sepia(99%) saturate(2466%) hue-rotate(344deg) brightness(101%) contrast(102%);
     border-radius: 50%;
     padding: 0.2em;
 }
 
 /* https: //codepen.io/sosuke/pen/Pjoqqp */
-.contact-icon:hover {
-    background-color: red;
-}

@@ -7,9 +7,7 @@ const HomePage = () => {
     <main>
       <div className="about">
         <AboutMe />
-        <div className="about-image">
-          <img src={AboutImage} />
-        </div>
+        <img className="about-image" src={AboutImage} />
       </div>
     </main>
   );

@@ -8,13 +8,15 @@
     width: 17rem;
     height: 17rem;
     justify-self: center;
-    border: 1px solid;
     text-align: center;
     display: flex;
     flex-direction: column;
     gap: 1em;
     padding: 0.8em;
     cursor: pointer;
+    box-shadow: var(--shadow-dp04);
+    background-color: var(--card-background);
+    border-radius: 8px;
 }
 
 .blog-title {
@@ -23,6 +25,7 @@
 
 .blog-desc {
     font-size: 1.3rem;
+    opacity: 70%;
 }
 
 .blog-link {

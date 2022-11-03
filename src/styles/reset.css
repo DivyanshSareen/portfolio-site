@@ -120,25 +120,6 @@ a {
     background: transparent;
 }
 
-a:visited {
-    color: inherit;
-}
-
-/* change colours to suit your needs */
-ins {
-    background-color: #ff9;
-    color: #000;
-    text-decoration: none;
-}
-
-/* change colours to suit your needs */
-mark {
-    background-color: #ff9;
-    color: #000;
-    font-style: italic;
-    font-weight: bold;
-}
-
 del {
     text-decoration: line-through;
 }
@@ -152,16 +133,6 @@ dfn[title] {
 table {
     border-collapse: collapse;
     border-spacing: 0;
-}
-
-/* change border colour to suit your needs */
-hr {
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid #cccccc;
-    margin: 1em 0;
-    padding: 0;
 }
 
 input,

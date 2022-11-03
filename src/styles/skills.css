@@ -11,7 +11,10 @@
 }
 
 .technology-icon {
-    justify-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .technology-icon>img {
@@ -21,6 +24,10 @@
 }
 
 .technology-title {
+    margin: 1em;
     text-align: center;
     font-weight: lighter;
+    font-family: 'Roboto Flex', sans-serif;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1rem;
 }

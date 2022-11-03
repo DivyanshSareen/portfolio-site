@@ -1,16 +1,28 @@
 .about {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    height: 30vh;
-    margin: 5% 0 0 0;
+    grid-template-columns: 60vw 30vw;
+    margin: 2em 0 0 2em;
 }
 
 .about-text {
-    margin: 3em 0 3em 3em;
-    padding: 0 0 0 5vw;
+    margin: 3.2em 0 3em 3.5em;
     display: flex;
     flex-direction: column;
     align-items: end;
+    border-radius: 6px;
+    padding: 1.5em;
+    background-color: var(--card-background);
+    box-shadow: var(--shadow-dp04)
+}
+
+.about-title {
+    margin-left: auto;
+    margin-bottom: 0.5em;
+    font-size: 2.6rem;
+}
+
+#my-name {
+    color: var(--action-orange);
 }
 
 .about-text--option {
@@ -20,17 +32,11 @@
 }
 
 .about-image {
-    display: flex;
-    justify-content: center;
-    align-items: baseline;
     border-radius: 50%;
-    margin: 1em;
-}
-
-.about-image>img {
+    align-self: center;
+    justify-self: center;
     height: 40vh;
-    border-radius: 50%;
-    aspect-ratio: 1/1;
+    box-shadow: var(--shadow-dp04);
 }
 
 .about-text--paragraph {

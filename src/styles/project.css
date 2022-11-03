@@ -9,12 +9,15 @@
     width: 17rem;
     height: 17rem;
     justify-self: center;
-    border: 1px solid;
     display: flex;
     flex-direction: column;
     gap: 1em;
     padding: 0.8em;
     cursor: pointer;
+    line-height: 1.2;
+    border-radius: 8px;
+    background-color: var(--card-background);
+    box-shadow: var(--shadow-dp04);
 }
 
 .project-title {
@@ -22,6 +25,7 @@
 }
 
 .project-desc {
+    opacity: 70%;
     font-size: 1.1rem;
 }
 

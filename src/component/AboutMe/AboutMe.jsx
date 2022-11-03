@@ -8,6 +8,9 @@ const AboutMe = () => {
   };
   return (
     <div className="about-text">
+      <div className="about-title">
+        Hello, I am <span id="my-name">Divyansh Sareen.</span>
+      </div>
       {data[dataIndex].text.map((text, index) => (
         <div key={index} className="about-text--paragraph">
           {text}

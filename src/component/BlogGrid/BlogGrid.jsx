@@ -27,7 +27,7 @@ const BlogGrid = () => {
         <div key={blog.id} className="blog-card">
           <div className="blog-title">{blog.name}</div>
           <div className="blog-desc">{blog.desc}</div>
-          <a  className="blog-link" href={blog.url} target="_blank">
+          <a className="blog-link" href={blog.url} target="_blank">
             <div className="btn">Read</div>
           </a>
         </div>
