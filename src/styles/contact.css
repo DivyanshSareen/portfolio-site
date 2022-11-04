@@ -18,9 +18,12 @@
     border-radius: 4px;
 }
 
-.contact-icon>object {
+.contact-icon img {
     aspect-ratio: 1/1;
+}
 
+.contact-icon img:hover {
+    box-shadow: var(--shadow-dp12);
 }
 
 .contact-icon {
