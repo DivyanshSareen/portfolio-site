@@ -1,6 +1,7 @@
 nav {
     display: flex;
     justify-content: center;
+    align-items: center;
     padding: 1em;
     position: sticky;
     top: 0;
@@ -10,6 +11,15 @@ nav {
 
 .nav-option {
     margin: 0 1em 0 1em;
-    width: 7vw;
+    width: 6rem;
     text-align: center;
+}
+
+.nav-icon {
+    display: none;
+    background-color: var(--action-orange);
+    padding: 4px;
+    border-radius: 4px;
+    width: 1.5rem;
+    margin-left: auto;
 }

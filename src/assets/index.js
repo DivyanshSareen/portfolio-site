@@ -4,6 +4,8 @@ import GitHub from "./icons/github.svg";
 import Hashnode from "./icons/hashnode.svg";
 import Codewars from "./icons/codewars.svg";
 import Twitter from "./icons/twitter.svg";
+import Bars from "./icons/bars-solid.svg";
+import Xmark from "./icons/xmark-solid.svg";
 
 import Css3 from "./technologies/css3.svg";
 import Figma from "./technologies/figma.svg";
@@ -33,4 +35,6 @@ export {
   Python,
   ReactIcon,
   Redux,
+  Bars,
+  Xmark,
 };

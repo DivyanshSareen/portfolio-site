@@ -13,14 +13,11 @@
 .technology-icon {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 
 .technology-icon>img {
     width: 6rem;
-    height: 6rem;
-    aspect-ratio: 1/1;
 }
 
 .technology-title {

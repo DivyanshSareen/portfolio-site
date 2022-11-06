@@ -6,3 +6,91 @@
 @import "./skills.css";
 @import "./blogs.css";
 @import "./project.css";
+
+@media only screen and (max-width: 1200px) {
+    .technology-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media only screen and (max-width: 1100px) {
+    .about {
+        grid-template-columns: 1fr;
+        margin: 1em 4em 1em 1em;
+    }
+
+    .about-image {
+        display: none;
+    }
+
+    .about-text {
+        margin: 1em;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .blog-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .about {
+        grid-template-columns: 1fr;
+        margin: 1em 4em 1em 1em;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .blog-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .technology-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .nav-option {
+        display: none;
+    }
+
+    .nav-icon {
+        display: block;
+        height: 32px;
+        aspect-ratio: 1/1;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .technology-icon>img {
+        width: 3rem;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .about-title {
+        font-size: 2.3rem;
+    }
+
+    .btn {
+        font-size: 0.8rem;
+    }
+}
+
+.dropdown-nav {
+    position: absolute;
+    z-index: 99;
+    left: 0;
+    right: 0;
+    background-color: var(--grey-darker);
+}
+
+.dropdown-nav--option {
+    border-radius: 4px;
+    margin: 2em 4em 2em 4em;
+    padding: 1em;
+}

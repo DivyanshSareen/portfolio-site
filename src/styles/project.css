@@ -1,7 +1,7 @@
 .project-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 2em;
+    grid-row-gap: 1.75em;
     margin: 5vw;
 }
 
