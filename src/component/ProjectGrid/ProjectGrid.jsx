@@ -22,7 +22,7 @@ const ProjectGrid = () => {
       id: 4,
       name: "CSS Library",
       desc: "A pure CSS based component Library with features like Typography, Buttons, Navbar, Modal, List, Form etc.",
-      url: "https://github.com/DivyanshSareen/PeaceUI",
+      url: "https://peaceui.netlify.app/",
       gitUrl: "https://github.com/DivyanshSareen/PeaceUI",
       tech: [],
     },
@@ -40,6 +40,14 @@ const ProjectGrid = () => {
       desc: "Features: Create/Update/Delete Post, Like, Comment & Bookmark Post, User Profile, Follow/Unfollow users",
       url: "https://tweeterweb.netlify.app/",
       gitUrl: "https://github.com/DivyanshSareen/tweeter",
+      tech: [],
+    },
+    {
+      id: 6,
+      name: "Quiz App",
+      desc: "React based SPA where you can enjoy fun quizzes on your favourite topics. Currently we have quizzes on The Office and Haikyu!",
+      url: "https://quizmasterweb.netlify.app/",
+      gitUrl: "https://github.com/DivyanshSareen/master-quiz",
       tech: [],
     },
   ];
