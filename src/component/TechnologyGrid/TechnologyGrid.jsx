@@ -10,6 +10,11 @@ import {
   Python,
   ReactIcon,
   Redux,
+  Swagger,
+  NodeIcon,
+  NestIcon,
+  ExpressIcon,
+  FastifyIcon
 } from "../../assets/index";
 
 const TechnologyGrid = () => {
@@ -24,6 +29,11 @@ const TechnologyGrid = () => {
     { id: 7, name: "Figma", icon: Figma },
     { id: 8, name: "Git/GitHub", icon: Git },
     { id: 9, name: "Netlify", icon: Netlify },
+    {id: 10, name: "Swagger", icon: Swagger},
+    {id: 11, name: "Node", icon: NodeIcon},
+    {id: 12, name: "Express", icon: ExpressIcon},
+    {id: 13, name: "NestJS", icon: NestIcon},
+    {id: 14, name: "Fastify", icon: FastifyIcon}
   ];
 
   return (

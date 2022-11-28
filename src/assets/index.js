@@ -17,6 +17,11 @@ import Netlify from "./technologies/netlify.svg";
 import Python from "./technologies/python.svg";
 import ReactIcon from "./technologies/react.svg";
 import Redux from "./technologies/redux.svg";
+import Swagger from "./technologies/swagger.png";
+import NodeIcon from "./technologies/node.png";
+import NestIcon from "./technologies/nestjs.png"
+import ExpressIcon from "./technologies/express.png";
+import FastifyIcon from "./technologies/fastify.svg";
 
 export {
   About,
@@ -37,4 +42,9 @@ export {
   Redux,
   Bars,
   Xmark,
+  Swagger,
+  NodeIcon,
+  NestIcon,
+  ExpressIcon,
+  FastifyIcon
 };
