@@ -1,8 +1,0 @@
-build
-coverage
-dist
-
-**/.git
-**/.svn
-**/.hg
-**/node_modules
