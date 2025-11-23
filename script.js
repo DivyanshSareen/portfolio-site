@@ -1,6 +1,4 @@
 // Theme Toggle
-// Initialize EmailJS with your public key
-
 const themeToggle = document.getElementById("theme-toggle");
 const html = document.documentElement;
 
@@ -9,6 +7,11 @@ const currentTheme = localStorage.getItem("theme") || "light";
 html.setAttribute("data-theme", currentTheme);
 updateThemeIcon(currentTheme);
 
+// Update navbar background on page load
+window.addEventListener('load', () => {
+  updateNavbarBackground(currentTheme);
+});
+
 themeToggle.addEventListener("click", () => {
   const currentTheme = html.getAttribute("data-theme");
   const newTheme = currentTheme === "dark" ? "light" : "dark";
@@ -16,11 +19,23 @@ themeToggle.addEventListener("click", () => {
   html.setAttribute("data-theme", newTheme);
   localStorage.setItem("theme", newTheme);
   updateThemeIcon(newTheme);
+  updateNavbarBackground(newTheme);
 });
 
 function updateThemeIcon(theme) {
   const icon = themeToggle.querySelector(".theme-icon");
   icon.textContent = theme === "dark" ? "☀️" : "🌙";
+}
+
+function updateNavbarBackground(theme) {
+  const navbar = document.getElementById("navbar");
+  if (navbar) {
+    const isScrolled = window.scrollY > 50;
+    navbar.style.background =
+      theme === "dark"
+        ? isScrolled ? "rgba(15, 23, 42, 0.98)" : "rgba(15, 23, 42, 0.95)"
+        : isScrolled ? "rgba(250, 250, 249, 0.98)" : "rgba(250, 250, 249, 0.95)";
+  }
 }
 
 // Mobile Navigation
@@ -74,12 +89,12 @@ window.addEventListener("scroll", () => {
     navbar.style.background =
       html.getAttribute("data-theme") === "dark"
         ? "rgba(15, 23, 42, 0.98)"
-        : "rgba(255, 255, 255, 0.98)";
+        : "rgba(250, 250, 249, 0.98)";
   } else {
     navbar.style.background =
       html.getAttribute("data-theme") === "dark"
         ? "rgba(15, 23, 42, 0.95)"
-        : "rgba(255, 255, 255, 0.95)";
+        : "rgba(250, 250, 249, 0.95)";
   }
 });
 
@@ -141,107 +156,72 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
-// Intersection Observer for Animations
+// Enhanced Intersection Observer for Smooth Section Reveals
 const observerOptions = {
-  threshold: 0.1,
-  rootMargin: "0px 0px -50px 0px",
+  threshold: 0.15,
+  rootMargin: "0px 0px -100px 0px",
 };
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      entry.target.style.opacity = "1";
-      entry.target.style.transform = "translateY(0)";
+      entry.target.classList.add('section-visible');
+      // Animate child elements with stagger
+      const children = entry.target.querySelectorAll('.skill-category, .project-card, .timeline-item, .blog-card, .highlight');
+      children.forEach((child, index) => {
+        setTimeout(() => {
+          child.classList.add('element-visible');
+        }, index * 100);
+      });
     }
   });
 }, observerOptions);
 
 // Observe sections for animation
 document.querySelectorAll("section").forEach((section) => {
-  section.style.opacity = "0";
-  section.style.transform = "translateY(20px)";
-  section.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+  section.classList.add('section-hidden');
   observer.observe(section);
 });
 
-// Skill Progress Animation
+// Enhanced Skill Progress Animation with Loading Effect
 const skillObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
       const progressBars = entry.target.querySelectorAll(".skill-progress");
-      progressBars.forEach((bar) => {
-        const width = bar.style.width;
+      progressBars.forEach((bar, index) => {
+        const targetWidth = bar.getAttribute('data-width') || bar.style.width;
         bar.style.width = "0%";
+        
+        // Stagger the animation for each skill bar
         setTimeout(() => {
-          bar.style.width = width;
-        }, 200);
+          bar.style.width = targetWidth;
+          
+          // Add a pulse effect when animation completes
+          setTimeout(() => {
+            bar.style.animation = 'pulse 0.5s ease';
+            setTimeout(() => {
+              bar.style.animation = '';
+            }, 500);
+          }, 1000);
+        }, index * 150);
       });
+      
+      // Only animate once
+      skillObserver.unobserve(entry.target);
     }
   });
 }, observerOptions);
 
 document.querySelectorAll(".skill-category").forEach((category) => {
+  // Store original widths
+  category.querySelectorAll(".skill-progress").forEach((bar) => {
+    const width = bar.style.width;
+    bar.setAttribute('data-width', width);
+  });
   skillObserver.observe(category);
 });
 
-// This will work both locally and on Netlify
-const publicKey = import.meta.env.VITE_PUBLIC_KEY;
-const serviceId = import.meta.env.VITE_EMAIL_SERVICE_ID;
-const templateId = import.meta.env.VITE_EMAIL_TEMPLATE_ID;
 
-// Contact Form Handling with EmailJS
-emailjs.init(publicKey);
-
-const contactForm = document.getElementById("contact-form");
-
-contactForm.addEventListener("submit", function (e) {
-  e.preventDefault();
-  emailjs
-    .sendForm(serviceId, templateId, this)
-    .then(() => {
-      showNotification("Message sent successfully!");
-      contactForm.reset();
-    })
-    .catch((error) => {
-      showNotification("Failed to send message. Please try again.", "error");
-    });
-});
-// Notification System
-function showNotification(message, type = "success") {
-  const notification = document.createElement("div");
-  notification.className = `notification ${type}`;
-  notification.textContent = message;
-
-  // Add styles
-  notification.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: var(--accent-primary);
-        color: white;
-        padding: 1rem 1.5rem;
-        border-radius: 0.5rem;
-        box-shadow: var(--shadow-lg);
-        z-index: 1000;
-        transform: translateX(100%);
-        transition: transform 0.3s ease;
-    `;
-
-  document.body.appendChild(notification);
-
-  // Show notification
-  setTimeout(() => {
-    notification.style.transform = "translateX(0)";
-  }, 100);
-
-  // Hide notification after 3 seconds
-  setTimeout(() => {
-    notification.style.transform = "translateX(100%)";
-    setTimeout(() => {
-      document.body.removeChild(notification);
-    }, 300);
-  }, 3000);
-}
 
 // Parallax Effect for Hero Section
 window.addEventListener("scroll", () => {
@@ -272,11 +252,6 @@ document.addEventListener("keydown", (e) => {
 });
 
 function activateEasterEgg() {
-  showNotification(
-    "🎉 Konami Code activated! You found the secret!",
-    "success"
-  );
-
   // Add some fun effects
   document.body.style.animation = "rainbow 2s ease-in-out";
 
@@ -349,6 +324,53 @@ const focusStyleSheet = document.createElement("style");
 focusStyleSheet.textContent = focusStyles;
 document.head.appendChild(focusStyleSheet);
 
+// Add ripple effect to buttons
+function createRipple(event) {
+  const button = event.currentTarget;
+  const ripple = document.createElement('span');
+  const rect = button.getBoundingClientRect();
+  const size = Math.max(rect.width, rect.height);
+  const x = event.clientX - rect.left - size / 2;
+  const y = event.clientY - rect.top - size / 2;
+
+  ripple.style.width = ripple.style.height = `${size}px`;
+  ripple.style.left = `${x}px`;
+  ripple.style.top = `${y}px`;
+  ripple.classList.add('ripple-effect');
+
+  button.appendChild(ripple);
+
+  setTimeout(() => {
+    ripple.remove();
+  }, 600);
+}
+
+// Add smooth hover effects to cards
+function addCardHoverEffects() {
+  const cards = document.querySelectorAll('.skill-category, .project-card, .blog-card, .timeline-content');
+  
+  cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      
+      // Reduced tilt effect - divided by 80 instead of 20 for subtler movement
+      const rotateX = (y - centerY) / 80;
+      const rotateY = (centerX - x) / 80;
+      
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px)`;
+    });
+    
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
+}
+
 // Initialize everything when DOM is loaded
 document.addEventListener("DOMContentLoaded", () => {
   // Set initial theme based on system preference if no saved preference
@@ -371,4 +393,12 @@ document.addEventListener("DOMContentLoaded", () => {
   animatedElements.forEach((element, index) => {
     element.style.animationDelay = `${index * 0.1}s`;
   });
+
+  // Add ripple effect to all buttons
+  document.querySelectorAll('.btn').forEach(button => {
+    button.addEventListener('click', createRipple);
+  });
+
+  // Add card hover effects
+  addCardHoverEffects();
 });

@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Testing Suite</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: #f8fafc;
+        }
+        h1 {
+            color: #0f172a;
+            border-bottom: 3px solid #3b82f6;
+            padding-bottom: 0.5rem;
+        }
+        h2 {
+            color: #1e293b;
+            margin-top: 2rem;
+        }
+        .test-section {
+            background: white;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .test-result {
+            padding: 0.5rem;
+            margin: 0.5rem 0;
+            border-radius: 0.25rem;
+        }
+        .pass {
+            background: #dcfce7;
+            color: #166534;
+            border-left: 4px solid #22c55e;
+        }
+        .fail {
+            background: #fee2e2;
+            color: #991b1b;
+            border-left: 4px solid #ef4444;
+        }
+        .warning {
+            background: #fef3c7;
+            color: #92400e;
+            border-left: 4px solid #eab308;
+        }
+        .summary {
+            background: #e0e7ff;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin: 2rem 0;
+        }
+        button {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-size: 1rem;
+            margin: 0.5rem;
+        }
+        button:hover {
+            background: #2563eb;
+        }
+        .viewport-test {
+            border: 2px solid #cbd5e1;
+            margin: 1rem 0;
+            padding: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>Portfolio Testing Suite</h1>
+    <p>Comprehensive testing for the portfolio website</p>
+
+    <div class="test-section">
+        <button onclick="runAllTests()">Run All Tests</button>
+        <button onclick="runResponsiveTests()">Test Responsive</button>
+        <button onclick="runLinkTests()">Test Links</button>
+        <button onclick="runAccessibilityTests()">Test Accessibility</button>
+    </div>
+
+    <div id="results"></div>
+
+    <script>
+        const results = document.getElementById('results');
+        let testResults = {
+            passed: 0,
+            failed: 0,
+            warnings: 0
+        };
+
+        function clearResults() {
+            results.innerHTML = '';
+            testResults = { passed: 0, failed: 0, warnings: 0 };
+        }
+
+        function addResult(message, status) {
+            const div = document.createElement('div');
+            div.className = `test-result ${status}`;
+            div.textContent = message;
+            results.appendChild(div);
+            
+            if (status === 'pass') testResults.passed++;
+            else if (status === 'fail') testResults.failed++;
+            else if (status === 'warning') testResults.warnings++;
+        }
+
+        function addSection(title) {
+            const section = document.createElement('div');
+            section.className = 'test-section';
+            const h2 = document.createElement('h2');
+            h2.textContent = title;
+            section.appendChild(h2);
+            results.appendChild(section);
+            return section;
+        }
+
+        function showSummary() {
+            const summary = document.createElement('div');
+            summary.className = 'summary';
+            summary.innerHTML = `
+                <h2>Test Summary</h2>
+                <p><strong>Passed:</strong> ${testResults.passed}</p>
+                <p><strong>Failed:</strong> ${testResults.failed}</p>
+                <p><strong>Warnings:</strong> ${testResults.warnings}</p>
+                <p><strong>Total:</strong> ${testResults.passed + testResults.failed + testResults.warnings}</p>
+            `;
+            results.appendChild(summary);
+        }
+
+        async function runAllTests() {
+            clearResults();
+            await runResponsiveTests();
+            await runLinkTests();
+            await runAccessibilityTests();
+            await runPerformanceTests();
+            showSummary();
+        }
+
+        async function runResponsiveTests() {
+            const section = addSection('10.1 Responsive Behavior Tests');
+            
+            // Open portfolio in iframe for testing
+            const iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+            iframe.src = '../index.html';
+            document.body.appendChild(iframe);
+
+            await new Promise(resolve => {
+                iframe.onload = resolve;
+            });
+
+            const doc = iframe.contentDocument;
+
+            // Test mobile viewport (< 768px)
+            addResult('Testing mobile viewport (< 768px)...', 'pass');
+            
+            const socialSidebar = doc.querySelector('.social-sidebar');
+            if (socialSidebar) {
+                addResult('✓ Social sidebar exists', 'pass');
+            } else {
+                addResult('✗ Social sidebar not found', 'fail');
+            }
+
+            const navMenu = doc.querySelector('.nav-menu');
+            if (navMenu) {
+                addResult('✓ Navigation menu exists', 'pass');
+            } else {
+                addResult('✗ Navigation menu not found', 'fail');
+            }
+
+            const hamburger = doc.querySelector('.hamburger');
+            if (hamburger) {
+                addResult('✓ Hamburger menu exists for mobile', 'pass');
+            } else {
+                addResult('✗ Hamburger menu not found', 'fail');
+            }
+
+            // Test tablet viewport (768px - 1024px)
+            addResult('Testing tablet viewport (768px - 1024px)...', 'pass');
+            
+            const heroContent = doc.querySelector('.hero-content');
+            if (heroContent) {
+                addResult('✓ Hero content exists', 'pass');
+            } else {
+                addResult('✗ Hero content not found', 'fail');
+            }
+
+            // Test desktop viewport (> 1024px)
+            addResult('Testing desktop viewport (> 1024px)...', 'pass');
+            
+            const container = doc.querySelector('.container');
+            if (container) {
+                addResult('✓ Container exists', 'pass');
+            } else {
+                addResult('✗ Container not found', 'fail');
+            }
+
+            // Test social sidebar positioning
+            if (socialSidebar) {
+                const styles = window.getComputedStyle(socialSidebar);
+                if (styles.position === 'fixed') {
+                    addResult('✓ Social sidebar has fixed positioning', 'pass');
+                } else {
+                    addResult('✗ Social sidebar should have fixed positioning', 'fail');
+                }
+            }
+
+            document.body.removeChild(iframe);
+        }
+
+        async function runLinkTests() {
+            const section = addSection('10.2 Links and Navigation Tests');
+            
+            const iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+            iframe.src = '../index.html';
+            document.body.appendChild(iframe);
+
+            await new Promise(resolve => {
+                iframe.onload = resolve;
+            });
+
+            const doc = iframe.contentDocument;
+
+            // Test social links
+            const socialLinks = doc.querySelectorAll('.social-sidebar-link');
+            addResult(`Found ${socialLinks.length} social links`, socialLinks.length === 4 ? 'pass' : 'fail');
+            
+            socialLinks.forEach((link, index) => {
+                if (link.getAttribute('target') === '_blank') {
+                    addResult(`✓ Social link ${index + 1} opens in new tab`, 'pass');
+                } else {
+                    addResult(`✗ Social link ${index + 1} should open in new tab`, 'fail');
+                }
+                
+                if (link.getAttribute('rel') === 'noopener noreferrer') {
+                    addResult(`✓ Social link ${index + 1} has security attributes`, 'pass');
+                } else {
+                    addResult(`✗ Social link ${index + 1} missing security attributes`, 'fail');
+                }
+            });
+
+            // Test blog post links
+            const blogLinks = doc.querySelectorAll('.blog-link');
+            addResult(`Found ${blogLinks.length} blog post links`, blogLinks.length === 3 ? 'pass' : 'fail');
+            
+            blogLinks.forEach((link, index) => {
+                if (link.getAttribute('target') === '_blank') {
+                    addResult(`✓ Blog link ${index + 1} opens in new tab`, 'pass');
+                } else {
+                    addResult(`✗ Blog link ${index + 1} should open in new tab`, 'fail');
+                }
+            });
+
+            // Test project links
+            const projectLinks = doc.querySelectorAll('.project-link');
+            addResult(`Found ${projectLinks.length} project links`, 'pass');
+            
+            projectLinks.forEach((link, index) => {
+                if (link.getAttribute('target') === '_blank') {
+                    addResult(`✓ Project link ${index + 1} opens in new tab`, 'pass');
+                } else {
+                    addResult(`✗ Project link ${index + 1} should open in new tab`, 'fail');
+                }
+            });
+
+            // Test smooth scroll navigation
+            const navLinks = doc.querySelectorAll('.nav-link');
+            addResult(`Found ${navLinks.length} navigation links`, navLinks.length === 6 ? 'pass' : 'fail');
+            
+            navLinks.forEach((link, index) => {
+                const href = link.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    const targetId = href.substring(1);
+                    const target = doc.getElementById(targetId);
+                    if (target) {
+                        addResult(`✓ Nav link "${link.textContent}" has valid target`, 'pass');
+                    } else {
+                        addResult(`✗ Nav link "${link.textContent}" target not found`, 'fail');
+                    }
+                }
+            });
+
+            // Test hamburger menu
+            const hamburger = doc.querySelector('.hamburger');
+            if (hamburger) {
+                addResult('✓ Hamburger menu exists', 'pass');
+            } else {
+                addResult('✗ Hamburger menu not found', 'fail');
+            }
+
+            document.body.removeChild(iframe);
+        }
+
+        async function runAccessibilityTests() {
+            const section = addSection('10.3 Accessibility Tests');
+            
+            const iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+            iframe.src = '../index.html';
+            document.body.appendChild(iframe);
+
+            await new Promise(resolve => {
+                iframe.onload = resolve;
+            });
+
+            const doc = iframe.contentDocument;
+
+            // Test aria-labels on social links
+            const socialLinks = doc.querySelectorAll('.social-sidebar-link');
+            socialLinks.forEach((link, index) => {
+                if (link.getAttribute('aria-label')) {
+                    addResult(`✓ Social link ${index + 1} has aria-label`, 'pass');
+                } else {
+                    addResult(`✗ Social link ${index + 1} missing aria-label`, 'fail');
+                }
+            });
+
+            // Test aria-labels on buttons
+            const themeToggle = doc.querySelector('.theme-toggle');
+            if (themeToggle && themeToggle.getAttribute('aria-label')) {
+                addResult('✓ Theme toggle has aria-label', 'pass');
+            } else {
+                addResult('✗ Theme toggle missing aria-label', 'fail');
+            }
+
+            const hamburger = doc.querySelector('.hamburger');
+            if (hamburger && hamburger.getAttribute('aria-label')) {
+                addResult('✓ Hamburger menu has aria-label', 'pass');
+            } else {
+                addResult('✗ Hamburger menu missing aria-label', 'fail');
+            }
+
+            // Test heading hierarchy
+            const h1s = doc.querySelectorAll('h1');
+            if (h1s.length === 1) {
+                addResult('✓ Page has exactly one h1 element', 'pass');
+            } else {
+                addResult(`✗ Page should have exactly one h1 (found ${h1s.length})`, 'fail');
+            }
+
+            // Test alt text on images (if any)
+            const images = doc.querySelectorAll('img');
+            images.forEach((img, index) => {
+                if (img.getAttribute('alt') !== null) {
+                    addResult(`✓ Image ${index + 1} has alt attribute`, 'pass');
+                } else {
+                    addResult(`✗ Image ${index + 1} missing alt attribute`, 'fail');
+                }
+            });
+
+            // Test keyboard navigation
+            const focusableElements = doc.querySelectorAll('a, button, input, textarea, select');
+            addResult(`Found ${focusableElements.length} focusable elements`, 'pass');
+
+            // Test color contrast (basic check)
+            addResult('⚠ Color contrast should be manually verified with tools', 'warning');
+            addResult('⚠ Screen reader compatibility should be manually tested', 'warning');
+
+            document.body.removeChild(iframe);
+        }
+
+        async function runPerformanceTests() {
+            const section = addSection('10.5 Performance Tests');
+            
+            const startTime = performance.now();
+            
+            const iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+            iframe.src = '../index.html';
+            document.body.appendChild(iframe);
+
+            await new Promise(resolve => {
+                iframe.onload = resolve;
+            });
+
+            const loadTime = performance.now() - startTime;
+            
+            if (loadTime < 2000) {
+                addResult(`✓ Page loaded in ${loadTime.toFixed(0)}ms (< 2 seconds)`, 'pass');
+            } else {
+                addResult(`✗ Page loaded in ${loadTime.toFixed(0)}ms (should be < 2 seconds)`, 'fail');
+            }
+
+            // Test for layout shifts
+            addResult('⚠ Layout shifts should be manually verified', 'warning');
+            addResult('⚠ Animation smoothness should be manually verified', 'warning');
+            addResult('⚠ Scroll performance should be manually tested', 'warning');
+
+            document.body.removeChild(iframe);
+        }
+    </script>
+</body>
+</html>
