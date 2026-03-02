@@ -6,21 +6,21 @@
 }
 
 :root {
-    /* Light Theme Colors - Softer, warmer palette */
-    --bg-primary: #fafaf9;
-    --bg-secondary: #f5f5f4;
-    --bg-tertiary: #e7e5e4;
-    --bg-hover: #e7e5e4;
-    --text-primary: #1c1917;
-    --text-secondary: #57534e;
-    --text-muted: #a8a29e;
-    --accent-primary: #3b82f6;
-    --accent-secondary: #8b5cf6;
-    --accent-hover: #2563eb;
-    --accent-gradient: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-    --accent-gradient-hover: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
-    --border-color: #e2e8f0;
-    --border-hover: #cbd5e1;
+    /* Light Theme Colors - Samurai Jack Inspired (60:30:10) - Enhanced Vibrancy */
+    --bg-primary: #f5f1e8;
+    --bg-secondary: #ebe4d6;
+    --bg-tertiary: #ddd5c7;
+    --bg-hover: #d4cbb8;
+    --text-primary: #2d1b1b;
+    --text-secondary: #5a4a4a;
+    --text-muted: #8a7a7a;
+    --accent-primary: #8b2e4a;
+    --accent-secondary: #a84d62;
+    --accent-hover: #6b1f35;
+    --accent-gradient: linear-gradient(135deg, #8b2e4a 0%, #c85a73 50%, #a84d62 100%);
+    --accent-gradient-hover: linear-gradient(135deg, #6b1f35 0%, #8b2e4a 50%, #c85a73 100%);
+    --border-color: #d4c4b0;
+    --border-hover: #b8a890;
     
     /* Enhanced shadows - softer and more subtle */
     --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
@@ -55,35 +55,35 @@
 }
 
 [data-theme="dark"] {
-    /* Richer, more vibrant dark backgrounds with subtle blue tint */
-    --bg-primary: #0a0e1a;
-    --bg-secondary: #131827;
-    --bg-tertiary: #1e2538;
-    --bg-hover: #2a3347;
+    /* Dark burgundy-black backgrounds - Samurai Jack Inspired - Enhanced Vibrancy */
+    --bg-primary: #1a1214;
+    --bg-secondary: #251a1d;
+    --bg-tertiary: #332428;
+    --bg-hover: #3d2d32;
     
-    /* Brighter, more vibrant text colors */
-    --text-primary: #f1f5f9;
-    --text-secondary: #e2e8f0;
-    --text-muted: #94a3b8;
+    /* Cream text colors */
+    --text-primary: #f5f1e8;
+    --text-secondary: #d4cbb8;
+    --text-muted: #9a8a7a;
     
-    /* More vibrant accent colors */
-    --accent-primary: #60a5fa;
-    --accent-secondary: #a78bfa;
-    --accent-hover: #93c5fd;
-    --accent-gradient: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
-    --accent-gradient-hover: linear-gradient(135deg, #93c5fd 0%, #c4b5fd 100%);
+    /* More vibrant burgundy/rose accents with gradient */
+    --accent-primary: #e06b85;
+    --accent-secondary: #c85a73;
+    --accent-hover: #ff7a96;
+    --accent-gradient: linear-gradient(135deg, #e06b85 0%, #ff7a96 50%, #c85a73 100%);
+    --accent-gradient-hover: linear-gradient(135deg, #ff7a96 0%, #e06b85 50%, #ff8fa8 100%);
     
-    /* Subtle colored borders instead of gray */
-    --border-color: #1e3a5f;
-    --border-hover: #2563eb;
+    /* Burgundy-tinted borders */
+    --border-color: #3d2d32;
+    --border-hover: #8b2e4a;
     
-    /* Enhanced dark mode shadows with subtle blue glow */
+    /* Enhanced dark mode shadows with subtle burgundy glow */
     --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
     --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.5), 0 1px 2px -1px rgba(0, 0, 0, 0.5);
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -2px rgba(0, 0, 0, 0.5);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.6), 0 4px 6px -4px rgba(59, 130, 246, 0.1);
-    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6), 0 8px 10px -6px rgba(59, 130, 246, 0.15);
-    --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 30px -10px rgba(59, 130, 246, 0.2);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.6), 0 4px 6px -4px rgba(107, 44, 62, 0.1);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6), 0 8px 10px -6px rgba(107, 44, 62, 0.15);
+    --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 30px -10px rgba(107, 44, 62, 0.2);
 }
 
 html {
@@ -114,13 +114,13 @@ body {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
-    /* Inverse color scheme - dark in light mode */
-    background: rgba(15, 23, 42, 0.95);
+    /* Dark burgundy sidebar in light mode */
+    background: rgba(45, 27, 27, 0.95);
     backdrop-filter: blur(10px);
     padding: 0.75rem;
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-xl);
-    border: 2px solid rgba(59, 130, 246, 0.3);
+    border: 2px solid rgba(107, 44, 62, 0.3);
     z-index: 50;
     transition: all var(--transition-normal);
     animation: slideInFromLeft 0.6s ease-out 0.3s both;
@@ -137,10 +137,10 @@ body {
     }
 }
 
-/* Light background in dark mode */
+/* Light cream sidebar in dark mode */
 [data-theme="dark"] .social-sidebar {
-    background: rgba(248, 250, 252, 0.95);
-    border: 2px solid rgba(59, 130, 246, 0.4);
+    background: rgba(245, 241, 232, 0.95);
+    border: 2px solid rgba(107, 44, 62, 0.4);
 }
 
 .social-sidebar-link {
@@ -149,8 +149,8 @@ body {
     justify-content: center;
     width: 40px;
     height: 40px;
-    /* Light icons in light mode (on dark sidebar) */
-    color: #f8fafc;
+    /* Cream icons in light mode (on dark sidebar) */
+    color: #f5f1e8;
     text-decoration: none;
     border-radius: var(--radius-md);
     transition: all var(--transition-fast);
@@ -158,9 +158,9 @@ body {
     position: relative;
 }
 
-/* Dark icons in dark mode (on light sidebar) */
+/* Dark burgundy icons in dark mode (on light sidebar) */
 [data-theme="dark"] .social-sidebar-link {
-    color: #0f172a;
+    color: #2d1b1b;
 }
 
 .social-sidebar-link::before {
@@ -180,7 +180,7 @@ body {
 .social-sidebar-link:hover {
     transform: scale(1.15);
     color: var(--accent-primary);
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+    box-shadow: 0 0 25px rgba(224, 107, 133, 0.6), 0 0 40px rgba(224, 107, 133, 0.3);
 }
 
 [data-theme="dark"] .social-sidebar-link:hover {
@@ -200,7 +200,7 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: rgba(250, 250, 249, 0.95);
+    background-color: rgba(245, 241, 232, 0.95);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border-color);
     z-index: 1000;
@@ -220,7 +220,7 @@ body {
 }
 
 [data-theme="dark"] .navbar {
-    background-color: rgba(15, 23, 42, 0.95);
+    background-color: rgba(26, 18, 20, 0.95);
 }
 
 .nav-container {
@@ -337,15 +337,31 @@ body {
     position: relative;
 }
 
-/* Animated gradient overlay for dark mode */
+/* Animated gradient overlay for dark mode - more vibrant */
 [data-theme="dark"] .hero::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.08) 0%, transparent 50%);
+    background: radial-gradient(circle at 20% 50%, rgba(224, 107, 133, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 122, 150, 0.12) 0%, transparent 50%);
     pointer-events: none;
     animation: gradientShift 15s ease infinite;
+}
+
+/* Add gradient overlay for light mode too */
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 80% 20%, rgba(139, 46, 74, 0.06) 0%, transparent 50%),
+                radial-gradient(circle at 20% 80%, rgba(168, 77, 98, 0.06) 0%, transparent 50%);
+    pointer-events: none;
+    animation: gradientShift 20s ease infinite;
+}
+
+[data-theme="dark"] .hero::before {
+    background: radial-gradient(circle at 20% 50%, rgba(224, 107, 133, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 122, 150, 0.12) 0%, transparent 50%);
 }
 
 @keyframes gradientShift {
@@ -745,13 +761,22 @@ section {
     border-color: var(--border-hover);
 }
 
-/* Add subtle glow to cards in dark mode */
+/* Add vibrant glow to cards in dark mode */
 [data-theme="dark"] .skill-category:hover,
 [data-theme="dark"] .project-card:hover,
 [data-theme="dark"] .blog-card:hover,
 [data-theme="dark"] .timeline-content:hover {
-    box-shadow: var(--shadow-xl), 0 0 30px rgba(59, 130, 246, 0.15);
-    border-color: rgba(59, 130, 246, 0.5);
+    box-shadow: var(--shadow-xl), 0 0 40px rgba(224, 107, 133, 0.25), 0 0 60px rgba(224, 107, 133, 0.1);
+    border-color: rgba(224, 107, 133, 0.6);
+}
+
+/* Add subtle glow to cards in light mode too */
+.skill-category:hover,
+.project-card:hover,
+.blog-card:hover,
+.timeline-content:hover {
+    box-shadow: var(--shadow-xl), 0 0 25px rgba(139, 46, 74, 0.15);
+    border-color: rgba(139, 46, 74, 0.4);
 }
 
 .category-title {
@@ -847,26 +872,26 @@ section {
     top: 0;
     width: 16px;
     height: 16px;
-    background: var(--accent-primary);
+    background: var(--accent-gradient);
     border-radius: 50%;
     border: 4px solid var(--bg-primary);
     z-index: 1;
     transition: all var(--transition-normal);
-    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4);
+    box-shadow: 0 0 0 0 rgba(224, 107, 133, 0.4), 0 0 8px rgba(224, 107, 133, 0.3);
 }
 
 .timeline-item:hover .timeline-dot {
     transform: scale(1.5);
-    box-shadow: 0 0 0 8px rgba(59, 130, 246, 0.2);
+    box-shadow: 0 0 0 8px rgba(224, 107, 133, 0.3), 0 0 20px rgba(224, 107, 133, 0.4);
     animation: pulse-dot 1.5s infinite;
 }
 
 @keyframes pulse-dot {
     0%, 100% {
-        box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4);
+        box-shadow: 0 0 0 0 rgba(224, 107, 133, 0.6), 0 0 15px rgba(224, 107, 133, 0.3);
     }
     50% {
-        box-shadow: 0 0 0 12px rgba(59, 130, 246, 0);
+        box-shadow: 0 0 0 15px rgba(224, 107, 133, 0), 0 0 25px rgba(224, 107, 133, 0);
     }
 }
 
@@ -1105,7 +1130,7 @@ section {
 
 .blog-card:hover .blog-icon {
     transform: scale(1.15) rotate(-5deg);
-    filter: drop-shadow(0 4px 8px rgba(59, 130, 246, 0.3));
+    filter: drop-shadow(0 4px 12px rgba(224, 107, 133, 0.5)) drop-shadow(0 0 20px rgba(224, 107, 133, 0.3));
 }
 
 .blog-title {
@@ -1317,13 +1342,13 @@ section {
         gap: 0.5rem;
         padding: 0.5rem;
         /* Keep inverse colors on mobile */
-        background: rgba(15, 23, 42, 0.95);
-        border: 2px solid rgba(59, 130, 246, 0.3);
+        background: rgba(45, 27, 27, 0.95);
+        border: 2px solid rgba(107, 44, 62, 0.3);
     }
 
     [data-theme="dark"] .social-sidebar {
-        background: rgba(248, 250, 252, 0.95);
-        border: 2px solid rgba(59, 130, 246, 0.4);
+        background: rgba(245, 241, 232, 0.95);
+        border: 2px solid rgba(107, 44, 62, 0.4);
     }
 
     .social-sidebar-link {

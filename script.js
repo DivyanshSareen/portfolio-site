@@ -33,8 +33,8 @@ function updateNavbarBackground(theme) {
     const isScrolled = window.scrollY > 50;
     navbar.style.background =
       theme === "dark"
-        ? isScrolled ? "rgba(15, 23, 42, 0.98)" : "rgba(15, 23, 42, 0.95)"
-        : isScrolled ? "rgba(250, 250, 249, 0.98)" : "rgba(250, 250, 249, 0.95)";
+        ? isScrolled ? "rgba(26, 18, 20, 0.98)" : "rgba(26, 18, 20, 0.95)"
+        : isScrolled ? "rgba(245, 241, 232, 0.98)" : "rgba(245, 241, 232, 0.95)";
   }
 }
 
@@ -88,13 +88,13 @@ window.addEventListener("scroll", () => {
   if (window.scrollY > 50) {
     navbar.style.background =
       html.getAttribute("data-theme") === "dark"
-        ? "rgba(15, 23, 42, 0.98)"
-        : "rgba(250, 250, 249, 0.98)";
+        ? "rgba(26, 18, 20, 0.98)"
+        : "rgba(245, 241, 232, 0.98)";
   } else {
     navbar.style.background =
       html.getAttribute("data-theme") === "dark"
-        ? "rgba(15, 23, 42, 0.95)"
-        : "rgba(250, 250, 249, 0.95)";
+        ? "rgba(26, 18, 20, 0.95)"
+        : "rgba(245, 241, 232, 0.95)";
   }
 });
 
