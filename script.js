@@ -2,8 +2,9 @@
 const themeToggle = document.getElementById("theme-toggle");
 const html = document.documentElement;
 
-// Check for saved theme preference or default to 'light'
-const currentTheme = localStorage.getItem("theme") || "light";
+// Theme toggle UI is removed for now, so always force light mode
+// regardless of saved preference or system dark-mode setting.
+const currentTheme = "light";
 html.setAttribute("data-theme", currentTheme);
 updateThemeIcon(currentTheme);
 
@@ -12,17 +13,20 @@ window.addEventListener('load', () => {
   updateNavbarBackground(currentTheme);
 });
 
-themeToggle.addEventListener("click", () => {
-  const currentTheme = html.getAttribute("data-theme");
-  const newTheme = currentTheme === "dark" ? "light" : "dark";
+if (themeToggle) {
+  themeToggle.addEventListener("click", () => {
+    const currentTheme = html.getAttribute("data-theme");
+    const newTheme = currentTheme === "dark" ? "light" : "dark";
 
-  html.setAttribute("data-theme", newTheme);
-  localStorage.setItem("theme", newTheme);
-  updateThemeIcon(newTheme);
-  updateNavbarBackground(newTheme);
-});
+    html.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
+    updateThemeIcon(newTheme);
+    updateNavbarBackground(newTheme);
+  });
+}
 
 function updateThemeIcon(theme) {
+  if (!themeToggle) return;
   const icon = themeToggle.querySelector(".theme-icon");
   icon.textContent = theme === "dark" ? "☀️" : "🌙";
 }
@@ -33,8 +37,8 @@ function updateNavbarBackground(theme) {
     const isScrolled = window.scrollY > 50;
     navbar.style.background =
       theme === "dark"
-        ? isScrolled ? "rgba(15, 23, 42, 0.98)" : "rgba(15, 23, 42, 0.95)"
-        : isScrolled ? "rgba(250, 250, 249, 0.98)" : "rgba(250, 250, 249, 0.95)";
+        ? isScrolled ? "rgba(20, 27, 33, 0.9)" : "rgba(20, 27, 33, 0.85)"
+        : isScrolled ? "rgba(234, 239, 239, 0.98)" : "rgba(234, 239, 239, 0.95)";
   }
 }
 
@@ -88,13 +92,13 @@ window.addEventListener("scroll", () => {
   if (window.scrollY > 50) {
     navbar.style.background =
       html.getAttribute("data-theme") === "dark"
-        ? "rgba(15, 23, 42, 0.98)"
-        : "rgba(250, 250, 249, 0.98)";
+        ? "rgba(20, 27, 33, 0.9)"
+        : "rgba(234, 239, 239, 0.98)";
   } else {
     navbar.style.background =
       html.getAttribute("data-theme") === "dark"
-        ? "rgba(15, 23, 42, 0.95)"
-        : "rgba(250, 250, 249, 0.95)";
+        ? "rgba(20, 27, 33, 0.85)"
+        : "rgba(234, 239, 239, 0.95)";
   }
 });
 
@@ -373,15 +377,10 @@ function addCardHoverEffects() {
 
 // Initialize everything when DOM is loaded
 document.addEventListener("DOMContentLoaded", () => {
-  // Set initial theme based on system preference if no saved preference
-  if (!localStorage.getItem("theme")) {
-    const prefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)"
-    ).matches;
-    const theme = prefersDark ? "dark" : "light";
-    html.setAttribute("data-theme", theme);
-    updateThemeIcon(theme);
-  }
+  // Theme toggle UI is removed for now, so always force light mode
+  // regardless of saved preference or system dark-mode setting.
+  html.setAttribute("data-theme", "light");
+  updateThemeIcon("light");
 
   // Update active nav link on page load
   updateActiveLink();
